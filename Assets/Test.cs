@@ -14,11 +14,11 @@ public class Boss{
 		Debug.Log (damage + "のダメージを受けた");
 	}
 	public void Magic(int a){
-		int b = mp - a;
-		if (b > 53) {
-			Debug.Log ("MPが足りないため魔法が使えない。");
+		if (mp>=a) {
+			mp -= a;
+			Debug.Log("魔法攻撃をした。残りMPは"+mp);
 		} else {
-			Debug.Log ("魔法攻撃をした。残りMPは" + b);
+			Debug.Log ("MPが足りないため魔法が使えない。");
 		}
 	}
 			
@@ -32,12 +32,17 @@ public class Test : MonoBehaviour {
 		lastboss.Defence (3);
 
 		Boss hit = new Boss ();
-		hit.Magic (5);
+		hit.Magic (55);
 
-		int[] array = { 1, 2, 3, 4, 5 };
+		int[] array = { 0, 1, 2, 3, 4 };
+
 		for (int i = 0; i < array.Length; i++) {
 			Debug.Log (array [i]);
 		}
+
+			for(int j=4;j>=0;j--){
+			Debug.Log (array [j]);
+			}
 	}
 	void Update(){
 	}
